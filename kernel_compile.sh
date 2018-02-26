@@ -70,7 +70,7 @@ make_kernel() {
 
     if [ "${2}" = "uImage" -o "${2}" = "all" ]; then
         echo "  Building kernel"
-        make -j ARCH=arm CROSS_COMPILE=${cross_comp}- uImage 
+        make -j3 ARCH=arm CROSS_COMPILE=${cross_comp}- uImage 
         if [ $? -ne 0 ] || [ ! -f arch/arm/boot/uImage ]; then
             echo "  Error: KERNEL NOT BUILT."
             exit 1
@@ -82,7 +82,7 @@ make_kernel() {
 
     if [ "${2}" = "modules" -o "${2}" = "all" ]; then
         echo " Building modules"
-        make -j ARCH=arm CROSS_COMPILE=${cross_comp}- modules 
+        make -j3 ARCH=arm CROSS_COMPILE=${cross_comp}- modules 
         sleep 1
 # ########################
 # export modules to output
